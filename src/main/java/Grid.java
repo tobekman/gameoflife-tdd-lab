@@ -9,4 +9,9 @@ public class Grid {
     public int[][] getGrid() {
         return grid;
     }
+
+
+    public void setAliveCell(int y, int x) {
+        grid[y][x] = 1;
+    }
 }
