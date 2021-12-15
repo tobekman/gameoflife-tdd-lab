@@ -1,12 +1,12 @@
 public class Grid {
 
-    private final int[][] completeGrid;
+    private final int[][] grid;
 
     public Grid(int height, int width) {
-        this.completeGrid = new int[height][width];
+        this.grid = new int[height][width];
     }
 
-    public int[][] getCompleteGrid() {
-        return completeGrid;
+    public int[][] getGrid() {
+        return grid;
     }
 }

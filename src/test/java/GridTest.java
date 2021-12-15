@@ -5,10 +5,10 @@ import static org.assertj.core.api.Assertions.*;
 public class GridTest {
 
     @Test
-    void gridIsCreated() {
+    void givenHeightAndWidthParametersCorrectGridIsCreated() {
         Grid grid = new Grid(4, 8);
         int[][] expected = new int[4][8];
-        int[][] actual = grid.getCompleteGrid();
+        int[][] actual = grid.getGrid();
 
         assertThat(actual).isEqualTo(expected);
     }
