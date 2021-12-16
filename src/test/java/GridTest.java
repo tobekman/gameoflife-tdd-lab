@@ -16,7 +16,7 @@ public class GridTest {
     void givenPositionSetCellValueTo1() {
         Grid grid = new Grid(4, 8);
 
-        grid.setAliveCell(1, 5);
+        grid.setAliveCell(new Cell(1, 5));
 
         assertThat(grid.getGrid()[1][5]).isEqualTo(1);
     }
@@ -25,9 +25,9 @@ public class GridTest {
     void checkForAliveNeighborsInRowReturnsCorrectNeighborCount() {
         Grid grid = new Grid(1, 10);
 
-        grid.setAliveCell(0, 3);
-        grid.setAliveCell(0, 5);
-        int count = grid.countAliveNeighbors(0, 4);
+        grid.setAliveCell(new Cell(0, 3));
+        grid.setAliveCell(new Cell(0, 5));
+        int count = grid.countAliveNeighbors(new Cell(0, 4));
 
         assertThat(count).isEqualTo(2);
     }
@@ -36,13 +36,13 @@ public class GridTest {
     void checkEdgeOnRowCellNoErrorAndReturnCorrectCount() {
         Grid grid = new Grid(1, 3);
 
-        grid.setAliveCell(0, 0);
-        grid.setAliveCell(0, 1);
-        grid.setAliveCell(0, 2);
+        grid.setAliveCell(new Cell(0, 0));
+        grid.setAliveCell(new Cell(0, 1));
+        grid.setAliveCell(new Cell(0, 2));
 
-        int leftEdge = grid.countAliveNeighbors(0, 0);
-        int middle = grid.countAliveNeighbors(0, 1);
-        int rightEdge = grid.countAliveNeighbors(0, 2);
+        int leftEdge = grid.countAliveNeighbors(new Cell(0, 0));
+        int middle = grid.countAliveNeighbors(new Cell(0, 1));
+        int rightEdge = grid.countAliveNeighbors(new Cell(0, 2));
 
         assertThat(leftEdge).isEqualTo(1);
         assertThat(middle).isEqualTo(2);
@@ -53,11 +53,24 @@ public class GridTest {
     void checkForAliveNeighborsInColumnReturnsCorrectNeighborCount() {
         Grid grid = new Grid(8, 5);
 
-        grid.setAliveCell(4, 3);
-        grid.setAliveCell(6, 3);
-        int count = grid.countAliveNeighbors(5, 3);
+        grid.setAliveCell(new Cell(4, 3));
+        grid.setAliveCell(new Cell(6, 3));
+        int count = grid.countAliveNeighbors(new Cell(5, 3));
 
         assertThat(count).isEqualTo(2);
+    }
+
+    @Test
+    void checkForAliveNeighborsReturnCorrectNeighborCount() {
+        Grid grid = new Grid(10, 10);
+
+        grid.setAliveCell(new Cell(5, 3));
+        grid.setAliveCell(new Cell(5, 5));
+        grid.setAliveCell(new Cell(4, 4));
+        grid.setAliveCell(new Cell(6, 4));
+        int count = grid.countAliveNeighbors(new Cell(5, 4));
+
+        assertThat(count).isEqualTo(4);
     }
 
 }
