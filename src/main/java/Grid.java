@@ -2,28 +2,28 @@ public class Grid {
 
     private final int[][] grid;
 
-    public Grid(int height, int width) {
-        this.grid = new int[height][width];
+    public Grid(int rows, int columns) {
+        this.grid = new int[rows][columns];
     }
 
     public int[][] getGrid() {
         return grid;
     }
 
-    public void setAliveCell(int y, int x) {
-        grid[y][x] = 1;
+    public void setAliveCell(int row, int column) {
+        grid[row][column] = 1;
     }
 
-    public int countAliveNeighbors(int y, int x) {
+    public int countAliveNeighbors(int row, int column) {
         int count = 0;
 
-        if(isNotLeftEdgeCell(x)){
-            if(isLeftNeighborAlive(y, x)) {
+        if(isNotLeftEdgeCell(column)){
+            if(isLeftNeighborAlive(row, column)) {
                 count++;
             }
         }
-        if(isNotRightEdgeCell(x)){
-            if(isRightNeighborAlive(y, x)) {
+        if(isNotRightEdgeCell(column)){
+            if(isRightNeighborAlive(row, column)) {
                 count++;
             }
         }
@@ -31,19 +31,19 @@ public class Grid {
         return count;
     }
 
-    private boolean isNotRightEdgeCell(int x) {
-        return x < grid[0].length - 1;
+    private boolean isNotRightEdgeCell(int column) {
+        return column < grid[0].length - 1;
     }
 
-    private boolean isNotLeftEdgeCell(int x) {
-        return x > 0;
+    private boolean isNotLeftEdgeCell(int column) {
+        return column > 0;
     }
 
-    private boolean isRightNeighborAlive(int y, int x) {
-        return grid[y][x + 1] == 1;
+    private boolean isRightNeighborAlive(int row, int column) {
+        return grid[row][column + 1] == 1;
     }
 
-    private boolean isLeftNeighborAlive(int y, int x) {
-        return grid[y][x - 1] == 1;
+    private boolean isLeftNeighborAlive(int row, int column) {
+        return grid[row][column - 1] == 1;
     }
 }
