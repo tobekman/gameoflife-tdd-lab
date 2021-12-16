@@ -61,16 +61,34 @@ public class GridTest {
     }
 
     @Test
+    void checkDiagonalNeighborsReturnCorrectCount() {
+        Grid grid = new Grid(3, 3);
+
+        grid.setAliveCell(new Cell(0, 0));
+        grid.setAliveCell(new Cell(0, 2));
+        grid.setAliveCell(new Cell(2, 0));
+        grid.setAliveCell(new Cell(2, 2));
+        int count = grid.countAliveNeighbors(new Cell(1, 1));
+
+        assertThat(count).isEqualTo(4);
+
+    }
+
+    @Test
     void checkForAliveNeighborsReturnCorrectNeighborCount() {
         Grid grid = new Grid(10, 10);
 
         grid.setAliveCell(new Cell(5, 3));
         grid.setAliveCell(new Cell(5, 5));
+        grid.setAliveCell(new Cell(4, 3));
         grid.setAliveCell(new Cell(4, 4));
+        grid.setAliveCell(new Cell(4, 5));
+        grid.setAliveCell(new Cell(6, 3));
         grid.setAliveCell(new Cell(6, 4));
+        grid.setAliveCell(new Cell(6, 5));
         int count = grid.countAliveNeighbors(new Cell(5, 4));
 
-        assertThat(count).isEqualTo(4);
+        assertThat(count).isEqualTo(8);
     }
 
 }

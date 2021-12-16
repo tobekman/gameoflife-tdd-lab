@@ -17,13 +17,17 @@ public class Grid {
     public int countAliveNeighbors(Cell cell) {
         return checkLeftNeighbor(cell)
                 + checkRightNeighbor(cell)
-                + checkAboveNeighbor(cell)
-                + checkBelowNeighbor(cell);
+                + checkUpperNeighbor(cell)
+                + checkLowerNeighbor(cell)
+                + checkUpperLeftNeighbor(cell)
+                + checkUpperRightNeighbor(cell)
+                + checkLowerLeftNeighbor(cell)
+                + checkLowerRightNeighbor(cell);
     }
 
     private int checkRightNeighbor(Cell cell) {
         if (isNotRightEdgeCell(cell)) {
-            if (isRightNeighborAlive(cell)) {
+            if (rightNeighborIsAlive(cell)) {
                 return 1;
             }
         }
@@ -32,45 +36,96 @@ public class Grid {
 
     private int checkLeftNeighbor(Cell cell) {
         if (isNotLeftEdgeCell(cell)) {
-            if (isLeftNeighborAlive(cell)) {
+            if (leftNeighborIsAlive(cell)) {
                 return 1;
             }
         }
         return 0;
     }
 
-    private int checkBelowNeighbor(Cell cell) {
+    private int checkLowerNeighbor(Cell cell) {
         if (isNotBottomRow(cell)) {
-            if (isBelowNeighborAlive(cell)) {
+            if (lowerNeighborIsAlive(cell)) {
                 return 1;
             }
         }
         return 0;
     }
 
-    private int checkAboveNeighbor(Cell cell) {
+    private int checkUpperNeighbor(Cell cell) {
         if (isNotTopRow(cell)) {
-            if (isAboveNeighborAlive(cell)) {
+            if (upperNeighborIsAlive(cell)) {
                 return 1;
             }
         }
         return 0;
     }
 
-    private boolean isRightNeighborAlive(Cell cell) {
+    private int checkUpperLeftNeighbor(Cell cell) {
+        if(isNotLeftEdgeCell(cell) && isNotTopRow(cell)) {
+            if(upperLeftNeighborIsAlive(cell)) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    private int checkUpperRightNeighbor(Cell cell) {
+        if(isNotRightEdgeCell(cell) && isNotTopRow(cell)) {
+            if(upperRightNeighborIsAlive(cell)) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+    private int checkLowerLeftNeighbor(Cell cell) {
+        if(isNotLeftEdgeCell(cell) && isNotBottomRow(cell)) {
+            if(lowerLeftNeighborIsAlive(cell)) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    private int checkLowerRightNeighbor(Cell cell) {
+        if(isNotRightEdgeCell(cell) && isNotBottomRow(cell)) {
+            if(lowerRightNeighborIsAlive(cell)) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    private boolean rightNeighborIsAlive(Cell cell) {
         return grid[cell.row()][cell.column() + 1] == 1;
     }
 
-    private boolean isLeftNeighborAlive(Cell cell) {
+    private boolean leftNeighborIsAlive(Cell cell) {
         return grid[cell.row()][cell.column() - 1] == 1;
     }
 
-    private boolean isBelowNeighborAlive(Cell cell) {
+    private boolean lowerNeighborIsAlive(Cell cell) {
         return grid[cell.row() + 1][cell.column()] == 1;
     }
 
-    private boolean isAboveNeighborAlive(Cell cell) {
+    private boolean upperNeighborIsAlive(Cell cell) {
         return grid[cell.row() - 1][cell.column()] == 1;
+    }
+
+    private boolean upperLeftNeighborIsAlive(Cell cell) {
+        return grid[cell.row() - 1][cell.column() - 1] == 1;
+    }
+
+    private boolean upperRightNeighborIsAlive(Cell cell) {
+        return grid[cell.row() - 1][cell.column() + 1] == 1;
+    }
+
+    private boolean lowerLeftNeighborIsAlive(Cell cell) {
+        return grid[cell.row() + 1][cell.column() - 1] == 1;
+    }
+
+    private boolean lowerRightNeighborIsAlive(Cell cell) {
+        return grid[cell.row() + 1][cell.column() + 1] == 1;
     }
 
     private boolean isNotRightEdgeCell(Cell cell) {
