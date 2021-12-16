@@ -30,10 +30,6 @@ public class GridTest {
         int count = grid.countAliveNeighbors(0, 4);
 
         assertThat(count).isEqualTo(2);
-
-
-
-
     }
 
 }

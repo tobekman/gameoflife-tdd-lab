@@ -17,13 +17,21 @@ public class Grid {
     public int countAliveNeighbors(int y, int x) {
         int count = 0;
 
-        if(grid[y][x - 1] == 1) {
+        if(isLeftNeighborAlive(y, x)) {
             count++;
         }
-        if(grid[y][x + 1] == 1) {
+        if(isRightNeighborAlive(y, x)) {
             count++;
         }
 
         return count;
+    }
+
+    private boolean isRightNeighborAlive(int y, int x) {
+        return grid[y][x + 1] == 1;
+    }
+
+    private boolean isLeftNeighborAlive(int y, int x) {
+        return grid[y][x - 1] == 1;
     }
 }
