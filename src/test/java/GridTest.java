@@ -33,7 +33,7 @@ public class GridTest {
     }
 
     @Test
-    void checkEdgeOnRowCellNoError() {
+    void checkEdgeOnRowCellNoErrorAndReturnCorrectCount() {
         Grid grid = new Grid(1, 3);
 
         grid.setAliveCell(0, 0);
@@ -47,6 +47,17 @@ public class GridTest {
         assertThat(leftEdge).isEqualTo(1);
         assertThat(middle).isEqualTo(2);
         assertThat(rightEdge).isEqualTo(1);
+    }
+
+    @Test
+    void checkForAliveNeighborsInColumnReturnsCorrectNeighborCount() {
+        Grid grid = new Grid(8, 5);
+
+        grid.setAliveCell(4, 3);
+        grid.setAliveCell(6, 3);
+        int count = grid.countAliveNeighbors(5, 3);
+
+        assertThat(count).isEqualTo(2);
     }
 
 }

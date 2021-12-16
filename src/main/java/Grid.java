@@ -27,6 +27,16 @@ public class Grid {
                 count++;
             }
         }
+        if(row > 0) {
+            if(grid[row - 1][column] == 1) {
+                count++;
+            }
+        }
+        if(row < grid.length - 1) {
+            if(grid[row + 1][column] == 1) {
+                count++;
+            }
+        }
 
         return count;
     }
