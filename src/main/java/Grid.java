@@ -17,11 +17,15 @@ public class Grid {
     public int countAliveNeighbors(int y, int x) {
         int count = 0;
 
-        if(isLeftNeighborAlive(y, x)) {
-            count++;
+        if(x > 0){
+            if(isLeftNeighborAlive(y, x)) {
+                count++;
+            }
         }
-        if(isRightNeighborAlive(y, x)) {
-            count++;
+        if(x < grid[0].length - 1){
+            if(isRightNeighborAlive(y, x)) {
+                count++;
+            }
         }
 
         return count;

@@ -32,4 +32,15 @@ public class GridTest {
         assertThat(count).isEqualTo(2);
     }
 
+    @Test
+    void checkEdgeOnRowCellNoError() {
+        Grid grid = new Grid(1, 2);
+
+        int leftEdge = grid.countAliveNeighbors(0, 0);
+        int rightEdge = grid.countAliveNeighbors(0, 1);
+
+        assertThat(leftEdge).isEqualTo(0);
+        assertThat(rightEdge).isEqualTo(0);
+    }
+
 }
