@@ -34,13 +34,19 @@ public class GridTest {
 
     @Test
     void checkEdgeOnRowCellNoError() {
-        Grid grid = new Grid(1, 2);
+        Grid grid = new Grid(1, 3);
+
+        grid.setAliveCell(0, 0);
+        grid.setAliveCell(0, 1);
+        grid.setAliveCell(0, 2);
 
         int leftEdge = grid.countAliveNeighbors(0, 0);
-        int rightEdge = grid.countAliveNeighbors(0, 1);
+        int middle = grid.countAliveNeighbors(0, 1);
+        int rightEdge = grid.countAliveNeighbors(0, 2);
 
-        assertThat(leftEdge).isEqualTo(0);
-        assertThat(rightEdge).isEqualTo(0);
+        assertThat(leftEdge).isEqualTo(1);
+        assertThat(middle).isEqualTo(2);
+        assertThat(rightEdge).isEqualTo(1);
     }
 
 }

@@ -17,18 +17,26 @@ public class Grid {
     public int countAliveNeighbors(int y, int x) {
         int count = 0;
 
-        if(x > 0){
+        if(isNotLeftEdgeCell(x)){
             if(isLeftNeighborAlive(y, x)) {
                 count++;
             }
         }
-        if(x < grid[0].length - 1){
+        if(isNotRightEdgeCell(x)){
             if(isRightNeighborAlive(y, x)) {
                 count++;
             }
         }
 
         return count;
+    }
+
+    private boolean isNotRightEdgeCell(int x) {
+        return x < grid[0].length - 1;
+    }
+
+    private boolean isNotLeftEdgeCell(int x) {
+        return x > 0;
     }
 
     private boolean isRightNeighborAlive(int y, int x) {
