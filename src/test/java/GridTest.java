@@ -21,4 +21,19 @@ public class GridTest {
         assertThat(grid.getGrid()[1][5]).isEqualTo(1);
     }
 
+    @Test
+    void checkForAliveNeighborsInRowReturnsCorrectNeighborCount() {
+        Grid grid = new Grid(1, 10);
+
+        grid.setAliveCell(0, 3);
+        grid.setAliveCell(0, 5);
+        int count = grid.countAliveNeighbors(0, 4);
+
+        assertThat(count).isEqualTo(2);
+
+
+
+
+    }
+
 }
