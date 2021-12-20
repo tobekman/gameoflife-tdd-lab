@@ -3,7 +3,7 @@ public class Grid {
     private final int[][] grid;
 
     public Grid(int rows, int columns) {
-        this.grid = new int[rows][columns];
+        grid = new int[rows][columns];
     }
 
     public int[][] getGrid() {
