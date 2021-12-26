@@ -151,6 +151,9 @@ public class Grid {
                 if (countAliveNeighbors(new Cell(i, j)) < 2) {
                     grid[i][j] = 0;
                 }
+                if (countAliveNeighbors(new Cell(i, j)) > 3) {
+                    grid[i][j] = 0;
+                }
             }
         }
     }
