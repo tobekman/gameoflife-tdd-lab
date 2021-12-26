@@ -62,8 +62,8 @@ public class Grid {
     }
 
     private int checkUpperLeftNeighbor(Cell cell) {
-        if(isNotLeftEdgeCell(cell) && isNotTopRow(cell)) {
-            if(upperLeftNeighborIsAlive(cell)) {
+        if (isNotLeftEdgeCell(cell) && isNotTopRow(cell)) {
+            if (upperLeftNeighborIsAlive(cell)) {
                 return 1;
             }
         }
@@ -71,16 +71,17 @@ public class Grid {
     }
 
     private int checkUpperRightNeighbor(Cell cell) {
-        if(isNotRightEdgeCell(cell) && isNotTopRow(cell)) {
-            if(upperRightNeighborIsAlive(cell)) {
+        if (isNotRightEdgeCell(cell) && isNotTopRow(cell)) {
+            if (upperRightNeighborIsAlive(cell)) {
                 return 1;
             }
         }
         return 0;
     }
+
     private int checkLowerLeftNeighbor(Cell cell) {
-        if(isNotLeftEdgeCell(cell) && isNotBottomRow(cell)) {
-            if(lowerLeftNeighborIsAlive(cell)) {
+        if (isNotLeftEdgeCell(cell) && isNotBottomRow(cell)) {
+            if (lowerLeftNeighborIsAlive(cell)) {
                 return 1;
             }
         }
@@ -88,8 +89,8 @@ public class Grid {
     }
 
     private int checkLowerRightNeighbor(Cell cell) {
-        if(isNotRightEdgeCell(cell) && isNotBottomRow(cell)) {
-            if(lowerRightNeighborIsAlive(cell)) {
+        if (isNotRightEdgeCell(cell) && isNotBottomRow(cell)) {
+            if (lowerRightNeighborIsAlive(cell)) {
                 return 1;
             }
         }
@@ -144,17 +145,4 @@ public class Grid {
         return cell.row() > 0;
     }
 
-
-    public void generateNextGeneration() {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if (countAliveNeighbors(new Cell(i, j)) < 2) {
-                    grid[i][j] = 0;
-                }
-                if (countAliveNeighbors(new Cell(i, j)) > 3) {
-                    grid[i][j] = 0;
-                }
-            }
-        }
-    }
 }
