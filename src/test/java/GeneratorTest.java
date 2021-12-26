@@ -6,7 +6,7 @@ class GeneratorTest {
     Generator generator = new Generator();
 
     @Test
-    void AliveCellWithFewerThanTwoLiveNeighborsIsSetDead() {
+    void aliveCellWithFewerThanTwoLiveNeighborsIsSetDead() {
         Grid grid = new Grid(5, 5);
         Cell cell = new Cell(3, 3);
 
@@ -18,7 +18,7 @@ class GeneratorTest {
     }
 
     @Test
-    void AliveCellWithMoreThanThreeLiveNeighborsIsSetDead() {
+    void aliveCellWithMoreThanThreeLiveNeighborsIsSetDead() {
         Grid grid = new Grid(5, 5);
         Cell cell = new Cell(3, 3);
 
@@ -34,7 +34,7 @@ class GeneratorTest {
     }
 
     @Test
-    void AliveCellWithTwoLiveNeighborsIsAlive() {
+    void aliveCellWithTwoLiveNeighborsIsAlive() {
         Grid grid = new Grid(1, 5);
         Cell cell = new Cell(0, 3);
 
@@ -49,7 +49,7 @@ class GeneratorTest {
     }
 
     @Test
-    void AliveCellWithThreeLiveNeighborsIsAlive() {
+    void aliveCellWithThreeLiveNeighborsIsAlive() {
         Grid grid = new Grid(2, 5);
         Cell cell = new Cell(0, 3);
 
@@ -63,7 +63,7 @@ class GeneratorTest {
         assertThat(newGeneration.getGrid()[0][3]).isOne();
     }
     @Test
-    void DeadCellWithThreeLiveNeighborsIsAlive() {
+    void deadCellWithThreeLiveNeighborsIsAlive() {
         Grid grid = new Grid(2, 5);
 
         grid.setAliveCell(new Cell(0,2));
@@ -76,7 +76,7 @@ class GeneratorTest {
     }
 
     @Test
-    void DeadCellWithMoreThanThreeLiveNeighborsIsDead() {
+    void deadCellWithMoreThanThreeLiveNeighborsIsDead() {
         Grid grid = new Grid(2, 5);
 
         grid.setAliveCell(new Cell(0,2));

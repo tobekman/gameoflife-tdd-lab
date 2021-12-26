@@ -1,13 +1,25 @@
 public class Grid {
 
     private final int[][] grid;
+    private final int rows;
+    private final int columns;
 
     public Grid(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
         grid = new int[rows][columns];
     }
 
     public int[][] getGrid() {
         return grid;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
     }
 
     public void setAliveCell(Cell cell) {
@@ -130,7 +142,7 @@ public class Grid {
     }
 
     private boolean isNotRightEdgeCell(Cell cell) {
-        return cell.column() < grid[0].length - 1;
+        return cell.column() < columns - 1;
     }
 
     private boolean isNotLeftEdgeCell(Cell cell) {
@@ -138,7 +150,7 @@ public class Grid {
     }
 
     private boolean isNotBottomRow(Cell cell) {
-        return cell.row() < grid.length - 1;
+        return cell.row() < rows - 1;
     }
 
     private boolean isNotTopRow(Cell cell) {

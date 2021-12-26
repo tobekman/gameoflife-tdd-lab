@@ -1,8 +1,8 @@
 public class Generator {
 
     public Grid generateNextGeneration(Grid grid) {
-        int gridRows = grid.getGrid().length;
-        int gridColumns = grid.getGrid()[0].length;
+        int gridRows = grid.getRows();
+        int gridColumns = grid.getColumns();
         Grid newGeneration = new Grid(gridRows, gridColumns);
 
         for (int i = 0; i < gridRows; i++) {
