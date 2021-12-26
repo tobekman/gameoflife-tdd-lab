@@ -91,4 +91,15 @@ public class GridTest {
         assertThat(count).isEqualTo(8);
     }
 
+    @Test
+    void cellWithFewerThanTwoLiveNeighborsIsSetDead() {
+        Grid grid = new Grid(5, 5);
+        Cell cell = new Cell(3, 3);
+
+        grid.setAliveCell(cell);
+        grid.generateNextGeneration();
+
+        assertThat(grid.getGrid()[3][3]).isZero();
+    }
+
 }

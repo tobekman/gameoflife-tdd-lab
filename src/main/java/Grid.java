@@ -145,4 +145,13 @@ public class Grid {
     }
 
 
+    public void generateNextGeneration() {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (countAliveNeighbors(new Cell(i, j)) < 2) {
+                    grid[i][j] = 0;
+                }
+            }
+        }
+    }
 }
