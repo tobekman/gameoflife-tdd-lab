@@ -1,3 +1,10 @@
+package console;
+
+import core.Cell;
+import core.Generator;
+import core.Grid;
+import util.MyScanner;
+
 public class GameOfLifeConsoleUI {
 
     Grid grid;

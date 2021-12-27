@@ -1,3 +1,7 @@
+package core;
+
+import core.Generator;
+import core.Grid;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

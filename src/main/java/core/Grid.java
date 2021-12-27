@@ -1,3 +1,5 @@
+package core;
+
 public class Grid {
 
     private final int[][] grid;
